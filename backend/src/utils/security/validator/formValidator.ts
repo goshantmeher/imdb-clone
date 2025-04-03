@@ -57,7 +57,11 @@ export const validateForm = (form: Record<string, any>, schema: Record<string, I
 };
 
 const validateFormData = (fieldValue: unknown, fieldKey: string, schema: Record<string, ISchemaTypeOptions>) => {
-   const fieldSchema = schema[fieldKey];
+   let fieldSchema = schema[fieldKey];
+   if (!fieldSchema.field_type && Array.isArray(fieldSchema)) {
+      fieldSchema = schema[fieldKey][0];
+   }
+
    switch (fieldSchema.field_type) {
       case FORM_FIELD_TYPES.NUMBER:
          if (typeof fieldValue !== 'number' || isNaN(fieldValue)) {
@@ -128,6 +132,21 @@ const validateFormData = (fieldValue: unknown, fieldKey: string, schema: Record<
             return {
                field: fieldKey,
                message: getMessage('INVALID_OBJECT_ID', [fieldKey]),
+            };
+         }
+         break;
+      case FORM_FIELD_TYPES.ID_LIST:
+         if (!Array.isArray(fieldValue)) {
+            return {
+               field: fieldKey,
+               message: getMessage('INVALD_ID_LIST', [fieldKey]),
+            };
+         }
+         const invalidIds = fieldValue.filter(value => typeof value !== 'string' || !mongoose.Types.ObjectId.isValid(value));
+         if (invalidIds.length > 0) {
+            return {
+               field: fieldKey,
+               message: getMessage('INVALD_ID_LIST', [fieldKey]),
             };
          }
          break;

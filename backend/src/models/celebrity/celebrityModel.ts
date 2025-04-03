@@ -3,7 +3,7 @@ import { ISchemaTypeOptions } from '../types';
 import { FORM_FIELD_TYPES } from '../../utils/constants/form-field-types';
 import { validateForm } from '../../utils/security/validator/formValidator';
 
-const ACTOR_ROLES = ['Actor', 'Producer'];
+export const ACTOR_ROLES = ['Actor', 'Producer'];
 
 export interface ICelebrity {
    _id?: mongoose.Schema.Types.ObjectId;
@@ -41,8 +41,8 @@ const CelebritySchema = new mongoose.Schema(CelebritySchemaObject, { timestamps:
 
 const Celebrity = mongoose.model('Celebrity', CelebritySchema);
 
-export const validateCelebrity = (user: Partial<ICelebrity>, isNew = false) => {
-   return validateForm(user, CelebritySchemaObject, isNew);
+export const validateCelebrity = (celebrity: Partial<ICelebrity>, isNew = false) => {
+   return validateForm(celebrity, CelebritySchemaObject, isNew);
 };
 
 export default Celebrity;

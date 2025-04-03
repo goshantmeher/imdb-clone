@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "907bfd2d-d250-4f32-9fe1-20891bad74ab",
+		"name": "Imdb clone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9886916",
+		"_collection_link": "https://orange-desert-380653.postman.co/workspace/shopme-backend~933bfd3d-b1ca-4276-b686-6dcadd56a181/collection/9886916-907bfd2d-d250-4f32-9fe1-20891bad74ab?action=share&source=collection_link&creator=9886916"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"testmail@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/user/logout",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\",\n    \"email\": \"testmail@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "celebrity",
+			"item": [
+				{
+					"name": "add celebrity",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kareena Kapoor\",\n    \"dob\": \"1980-09-21\",\n    \"bio\": \"Kareena Kapoor is an Indian actress who appears in Hindi films. She is one of the highest-paid actresses in India and has received several awards, including six Filmfare Awards. Kapoor is known for her roles in films such as Kabhi Khushi Kabhie Gham, Jab We Met, and 3 Idiots.\",\n    \"roles\": [\n        \"Actor\"\n    ],\n    \"avatar\": \"https://m.media-amazon.com/images/M/MV5BMjAyNjM4NTAwN15BMl5BanBnXkFtZTcwNDkxNzQzNg@@._V1_.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/celebrities",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update celebrity",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"roles\": [\"Producer\", \"Actor\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/celebrities/67eed1d17b5885b9ff5eb391",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								"67eed1d17b5885b9ff5eb391"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add role",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"role\": \"Producer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/celebrities/67eed3e97b5885b9ff5eb393/addRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								"67eed3e97b5885b9ff5eb393",
+								"addRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove role",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"role\": \"Producer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/celebrities/67eed3e97b5885b9ff5eb393/removeRole",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								"67eed3e97b5885b9ff5eb393",
+								"removeRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/celebrities/67eea8216251d011c2fa22e0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								"67eea8216251d011c2fa22e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter celebrity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/celebrities/?role=Actor&page=3&limit=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								""
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "Actor"
+								},
+								{
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter celebrity Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/celebrities/?role=Actor&page=3&limit=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								""
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "Actor"
+								},
+								{
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movie",
+			"item": [
+				{
+					"name": "add movie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Singham\",\n    \"year_of_release\": 2011,\n    \"producer_id\": \"67eed1d17b5885b9ff5eb391\",\n    \"actor_ids\": [\n        \"67eed1d17b5885b9ff5eb391\"\n    ],\n    \"plot\": \"A truly honest police officer is transferred to a town controlled by a gangster he has humiliated. The gangster believes he can use good power to bring down this officer who made him look foolish and weak.\",\n    \"avatar\": \"https://m.media-amazon.com/images/M/MV5BYjlkNjdlOGItYjlmNC00ZmM3LWEzZTItYTgxMWUxNmEyYTMyXkEyXkFqcGc@._V1_.jpg\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movies",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update movie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\": \"Singham again\"\n   \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movies/67eeedbefaaf202edbc86075",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"67eeedbefaaf202edbc86075"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add actor",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"actor_id\": \"67eed3f07b5885b9ff5eb395\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movies/67eeedbefaaf202edbc86075/addActor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"67eeedbefaaf202edbc86075",
+								"addActor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add actor Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"actor_id\": \"67eed3f07b5885b9ff5eb395\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/movies/67eeedbefaaf202edbc86075/removeActor",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movies",
+								"67eeedbefaaf202edbc86075",
+								"removeActor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/celebrities/67eea8216251d011c2fa22e0",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								"67eea8216251d011c2fa22e0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/celebrities/?role=Actor&page=3&limit=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"celebrities",
+								""
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "Actor"
+								},
+								{
+									"key": "page",
+									"value": "3"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

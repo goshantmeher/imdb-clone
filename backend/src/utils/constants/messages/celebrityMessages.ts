@@ -7,6 +7,9 @@ const CELEBRITY_MESSAGES = {
    CELEBRITY_DELETE_SUCCESS: 'Celebrity deleted successfully',
    CELEBRITY_FETCH_FAILURE: 'Failed to fetch celebrity',
    CELEBRITY_FETCH_SUCCESS: 'Celebrity fetched successfully',
+   ACTOR_NOT_FOUND: 'Actor not found',
+   SELECTED_ACTOR_NOT_FOUND: 'Actor(s) not found: {1}',
+   PRODUCER_NOT_FOUND: 'Producer not found',
 };
 
 export default CELEBRITY_MESSAGES;

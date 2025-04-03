@@ -29,6 +29,7 @@ const validationMessages = {
    INVALID_QUERY_ID: 'Provided Id is invalid',
    INVALID_URL: '{1} is not a valid URL',
    INVALID_URL_LIST: '{1} is not a valid URL list',
+   INVALD_ID_LIST: '{1} is not a valid id list',
 };
 
 const COMMON_MESSAGES = {

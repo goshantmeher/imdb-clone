@@ -11,6 +11,8 @@ export const validateAddCelebrity = (req: Request, res: Response, next: NextFunc
       const validationResult = validateCelebrity(body, true);
       if (validationResult.code !== ERROR_CONSTANTS.OK.code && validationResult.errors) {
          return next(createError(ERROR_CONSTANTS.VALIDATION_ERROR, JSON.stringify(validationResult.errors)));
+      } else if (validationResult.code === ERROR_CONSTANTS.VALIDATION_ERROR.code) {
+         return next(createError(validationResult));
       }
 
       next();
@@ -28,6 +30,31 @@ export const validateUpdateCelebrity = async (req: Request, res: Response, next:
       delete body.updatedAt;
 
       const validationResult = validateCelebrity(body);
+      if (validationResult.code !== ERROR_CONSTANTS.OK.code && validationResult.errors) {
+         return next(createError(ERROR_CONSTANTS.VALIDATION_ERROR, JSON.stringify(validationResult.errors)));
+      }
+
+      const existingCelebrity = await getCelebrityAction(req.params.ID);
+      if (existingCelebrity.data === null) {
+         return next(createError(ERROR_CONSTANTS.NOT_FOUND));
+      }
+      if (`${existingCelebrity.data?.createdBy}` !== req.user?.id) {
+         return next(createError(ERROR_CONSTANTS.UNAUTHORIZED));
+      }
+
+      next();
+   } catch (error) {
+      next(error);
+   }
+};
+
+export const validateAddRemoveRoleToCelebrity = async (req: Request, res: Response, next: NextFunction) => {
+   try {
+      const { role } = req.body;
+
+      const validationResult = validateCelebrity({
+         roles: [role],
+      });
       if (validationResult.code !== ERROR_CONSTANTS.OK.code && validationResult.errors) {
          return next(createError(ERROR_CONSTANTS.VALIDATION_ERROR, JSON.stringify(validationResult.errors)));
       }
