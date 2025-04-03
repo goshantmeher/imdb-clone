@@ -1,0 +1,3 @@
+const CELEBRITY_MESSAGES = {};
+
+export default CELEBRITY_MESSAGES;
