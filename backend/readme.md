@@ -52,6 +52,7 @@ Before running this project, ensure you have the following installed:
    Create a `.env` file in the root directory and configure the following variables:
 
    ```env
+   NODE_ENV=
    PORT=<server_port>
    JWT_SECRET=your_jwt_secret
    TOKEN_EXPIRATION=7d
