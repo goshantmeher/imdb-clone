@@ -3,6 +3,7 @@ export interface IActionResponse<T> {
    message: string;
    Description?: string;
    data?: T;
+   success?: boolean;
    errors?: {
       [key: string]: string;
    }[];

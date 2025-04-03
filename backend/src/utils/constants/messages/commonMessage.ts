@@ -24,6 +24,11 @@ const validationMessages = {
    INVALID_DATE: '{1} is not a valid date',
    INVALID_OBJECT_ID: '{1} is not a valid id',
    INVALID_FIELD_TYPE: '{1} is not a valid field type',
+   INVALID_STRING_LIST: '{1} is not a valid string list',
+   INVALID_LIST_VALUE: '{1} must be one of the following values: {2}',
+   INVALID_QUERY_ID: 'Provided Id is invalid',
+   INVALID_URL: '{1} is not a valid URL',
+   INVALID_URL_LIST: '{1} is not a valid URL list',
 };
 
 const COMMON_MESSAGES = {

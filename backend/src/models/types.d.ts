@@ -6,6 +6,7 @@ export interface IDataEachObjectScheme {
    minLength?: number;
    maxLength?: number;
    errorMessage?: string;
+   stringList: string[];
 }
 
 export type IDataObjectScheme = IDataEachObjectScheme[];

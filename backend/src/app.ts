@@ -2,7 +2,6 @@ import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
 import routes from './routes/routeHandler';
 import { initSecurity } from './utils/security/securityHelper';
-import authMiddleware from './utils/security/auth/authMiddleware';
 import initMongoDB from './db/dbHelper';
 import mongoose from 'mongoose';
 const cookieParser = require('cookie-parser');
@@ -11,7 +10,6 @@ const app = express();
 initSecurity(app);
 app.use(cookieParser());
 initMongoDB();
-app.use(authMiddleware.decodeToken);
 
 routes(app);
 

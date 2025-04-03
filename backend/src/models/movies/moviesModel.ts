@@ -9,7 +9,7 @@ export interface IMovie {
    producer_id: mongoose.Schema.Types.ObjectId;
    actor_ids: mongoose.Schema.Types.ObjectId[];
    plot: string;
-   poster_url?: string;
+   avatar_url?: string;
    createdBy?: mongoose.Schema.Types.ObjectId;
    createdAt?: Date;
    updatedAt?: Date;
@@ -37,7 +37,7 @@ const MovieSchemaObject: Record<keyof IMovie, ISchemaTypeOptions> = {
    createdAt: { type: Date, default: Date.now, field_type: FORM_FIELD_TYPES.DATE },
    updatedAt: { type: Date, default: Date.now, field_type: FORM_FIELD_TYPES.DATE },
    plot: { type: String, required: true, field_type: FORM_FIELD_TYPES.STRING },
-   poster_url: { type: String, field_type: FORM_FIELD_TYPES.URL },
+   avatar_url: { type: String, field_type: FORM_FIELD_TYPES.URL },
 };
 
 const MovieSchema = new mongoose.Schema<IMovie>(MovieSchemaObject, { timestamps: true });

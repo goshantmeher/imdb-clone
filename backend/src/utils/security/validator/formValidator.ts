@@ -67,8 +67,16 @@ const validateFormData = (fieldValue: unknown, fieldKey: string, schema: Record<
             };
          }
          break;
+      case FORM_FIELD_TYPES.TEXTAREA:
+         if (typeof fieldValue !== 'string' || fieldValue.length < 1) {
+            return {
+               field: fieldKey,
+               message: getMessage('INVALID_STRING', [fieldKey]),
+            };
+         }
+         break;
       case FORM_FIELD_TYPES.STRING:
-         const stringRegex = /^[a-zA-Z0-9_]+$/;
+         const stringRegex = /^[a-zA-Z0-9_ ]+$/;
          if (typeof fieldValue !== 'string' || !stringRegex.test(fieldValue)) {
             return {
                field: fieldKey,
@@ -120,6 +128,48 @@ const validateFormData = (fieldValue: unknown, fieldKey: string, schema: Record<
             return {
                field: fieldKey,
                message: getMessage('INVALID_OBJECT_ID', [fieldKey]),
+            };
+         }
+         break;
+      case FORM_FIELD_TYPES.STRING_LIST:
+         if (!Array.isArray(fieldValue)) {
+            return {
+               field: fieldKey,
+               message: getMessage('INVALID_STRING_LIST', [fieldKey]),
+            };
+         }
+         if (schema[fieldKey].stringList) {
+            const invalidValues = fieldValue.filter(value => !schema[fieldKey].stringList?.includes(value));
+            if (invalidValues.length > 0) {
+               return {
+                  field: fieldKey,
+                  message: getMessage('INVALID_LIST_VALUE', [fieldKey, schema[fieldKey].stringList.join(', ')]),
+               };
+            }
+         }
+
+         break;
+      case FORM_FIELD_TYPES.URL:
+         const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+         if (typeof fieldValue !== 'string' || !urlRegex.test(fieldValue)) {
+            return {
+               field: fieldKey,
+               message: getMessage('INVALID_URL', [fieldKey]),
+            };
+         }
+         break;
+      case FORM_FIELD_TYPES.URL_LIST:
+         if (!Array.isArray(fieldValue)) {
+            return {
+               field: fieldKey,
+               message: getMessage('INVALID_URL_LIST', [fieldKey]),
+            };
+         }
+         const invalidUrls = fieldValue.filter(url => !urlRegex.test(url));
+         if (invalidUrls.length > 0) {
+            return {
+               field: fieldKey,
+               message: getMessage('INVALID_URL_LIST', [fieldKey]),
             };
          }
          break;

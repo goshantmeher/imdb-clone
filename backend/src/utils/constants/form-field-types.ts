@@ -10,4 +10,5 @@ export const FORM_FIELD_TYPES = {
    TIME: 'time',
    URL: 'url',
    URL_LIST: 'url-list',
+   TEXTAREA: 'textarea',
 };

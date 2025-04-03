@@ -80,3 +80,22 @@ export const createUserAction = async (req: Request, res: Response): Promise<IAc
       return ERROR_CONSTANTS.INTERNAL_SERVER_ERROR;
    }
 };
+
+export const logoutAction = async (req: Request, res: Response): Promise<IActionResponse<IUser>> => {
+   try {
+      const user = req.user;
+      if (!user) {
+         return ERROR_CONSTANTS.UNAUTHORIZED;
+      }
+      res.clearCookie('token');
+      return {
+         ...ERROR_CONSTANTS.OK,
+         message: getMessage('USER_LOGOUT_SUCCESS'),
+      };
+   } catch (error) {
+      return {
+         ...ERROR_CONSTANTS.INTERNAL_SERVER_ERROR,
+         message: getMessage('USER_LOGOUT_FAILED'),
+      };
+   }
+};

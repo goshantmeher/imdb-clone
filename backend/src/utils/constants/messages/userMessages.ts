@@ -7,6 +7,8 @@ const USER_MESSAGES = {
    USER_REGISTER_FAILED: 'User registration failed, please try again',
    USER_LOGIN_SUCCESS: 'User logged in successfully',
    EMAIL_PASSWORD_REQUIRED: 'Email and password are required',
+   USER_LOGOUT_SUCCESS: 'User logged out successfully',
+   USER_LOGOUT_FAILED: 'User logout failed, please try again',
 };
 
 export default USER_MESSAGES;
