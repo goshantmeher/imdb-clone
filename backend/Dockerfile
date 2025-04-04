@@ -2,10 +2,10 @@
 FROM node:21-alpine as debug
 
 WORKDIR /work/
-COPY . /work/.
+COPY package*.json ./
 RUN npm install
+COPY . ./
 RUN npm run build
-COPY ./dist/ /work/src/
-WORKDIR /work/src/
+WORKDIR /work/dist/
 CMD [ "npm", "run", "start" ]
 
