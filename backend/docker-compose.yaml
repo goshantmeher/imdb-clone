@@ -7,7 +7,7 @@ services:
          context: .
          target: debug
       ports:
-         - 8060:8080
+         - 8020:8080
       volumes:
          - .:/usr/src/app
          - /usr/src/app/node_modules
