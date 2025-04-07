@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3031:5173"
+    volumes:
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+      - VITE_APPWRITE_URL=http://93.127.194.47:7070/v1
+      - VITE_APPWRITE_PROJECT=66393be000390a1c3913
