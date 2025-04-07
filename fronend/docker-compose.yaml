@@ -9,6 +9,4 @@ services:
     volumes:
       - /app/node_modules
     environment:
-      - NODE_ENV=production
-      - VITE_APPWRITE_URL=http://93.127.194.47:7070/v1
-      - VITE_APPWRITE_PROJECT=66393be000390a1c3913
+      - VITE_APP_API_URL=${NODE_ENV:-}
