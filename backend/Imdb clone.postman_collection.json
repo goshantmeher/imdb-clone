@@ -25,11 +25,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/user/login",
+							"raw": "{{base_url}}/user/login",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"user",
 								"login"
@@ -44,11 +43,10 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/user/logout",
+							"raw": "{{base_url}}/user/logout",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"user",
 								"logout"
@@ -72,11 +70,27 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/user",
+							"raw": "{{base_url}}/user",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create new user Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
 							"path": [
 								"user"
 							]
@@ -104,11 +118,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/celebrities",
+							"raw": "{{base_url}}/celebrities",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"celebrities"
 							]
@@ -131,11 +144,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/celebrities/67eed1d17b5885b9ff5eb391",
+							"raw": "{{base_url}}/celebrities/67eed1d17b5885b9ff5eb391",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"celebrities",
 								"67eed1d17b5885b9ff5eb391"
@@ -159,15 +171,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/celebrities/67eed3e97b5885b9ff5eb393/addRole",
+							"raw": "{{base_url}}/celebrities/67eed3e97b5885b9ff5eb393/add-role",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"celebrities",
 								"67eed3e97b5885b9ff5eb393",
-								"addRole"
+								"add-role"
 							]
 						}
 					},
@@ -188,15 +199,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/celebrities/67eed3e97b5885b9ff5eb393/removeRole",
+							"raw": "{{base_url}}/celebrities/67eed3e97b5885b9ff5eb393/remove-role",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"celebrities",
 								"67eed3e97b5885b9ff5eb393",
-								"removeRole"
+								"remove-role"
 							]
 						}
 					},
@@ -208,14 +218,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/celebrities/67eea8216251d011c2fa22e0",
+							"raw": "{{base_url}}/celebrities/67eed3fd7b5885b9ff5eb399",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"celebrities",
-								"67eea8216251d011c2fa22e0"
+								"67eed3fd7b5885b9ff5eb399"
 							]
 						}
 					},
@@ -227,11 +236,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/celebrities/?role=Actor&page=3&limit=2",
+							"raw": "{{base_url}}/celebrities/?role=Actor&page=1&limit=2&name=jr",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"celebrities",
 								""
@@ -243,11 +251,15 @@
 								},
 								{
 									"key": "page",
-									"value": "3"
+									"value": "1"
 								},
 								{
 									"key": "limit",
 									"value": "2"
+								},
+								{
+									"key": "name",
+									"value": "jr"
 								}
 							]
 						}
@@ -260,11 +272,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/celebrities/?role=Actor&page=3&limit=2",
+							"raw": "{{base_url}}/celebrities/?role=Actor",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"celebrities",
 								""
@@ -276,11 +287,18 @@
 								},
 								{
 									"key": "page",
-									"value": "3"
+									"value": "1",
+									"disabled": true
 								},
 								{
 									"key": "limit",
-									"value": "2"
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "67eed3fd7b5885b9ff5eb399",
+									"disabled": true
 								}
 							]
 						}
@@ -307,11 +325,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/movies",
+							"raw": "{{base_url}}/movies",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"movies"
 							]
@@ -334,11 +351,10 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/movies/67eeedbefaaf202edbc86075",
+							"raw": "{{base_url}}/movies/67eeedbefaaf202edbc86075",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"movies",
 								"67eeedbefaaf202edbc86075"
@@ -362,22 +378,21 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/movies/67eeedbefaaf202edbc86075/addActor",
+							"raw": "{{base_url}}/movies/67eeedbefaaf202edbc86075/add-actor",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"movies",
 								"67eeedbefaaf202edbc86075",
-								"addActor"
+								"add-actor"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "add actor Copy",
+					"name": "remove actor",
 					"request": {
 						"method": "PATCH",
 						"header": [],
@@ -391,15 +406,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/movies/67eeedbefaaf202edbc86075/removeActor",
+							"raw": "{{base_url}}/movies/67eeedbefaaf202edbc86075/remove-actor",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
 								"movies",
 								"67eeedbefaaf202edbc86075",
-								"removeActor"
+								"remove-actor"
 							]
 						}
 					},
@@ -411,14 +425,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/celebrities/67eea8216251d011c2fa22e0",
+							"raw": "{{base_url}}/movies/67eeedbefaaf202edbc86075",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
-								"celebrities",
-								"67eea8216251d011c2fa22e0"
+								"movies",
+								"67eeedbefaaf202edbc86075"
 							]
 						}
 					},
@@ -430,27 +443,37 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8080/celebrities/?role=Actor&page=3&limit=2",
+							"raw": "{{base_url}}/movies/?page=1&limit=20",
 							"host": [
-								"localhost"
+								"{{base_url}}"
 							],
-							"port": "8080",
 							"path": [
-								"celebrities",
+								"movies",
 								""
 							],
 							"query": [
 								{
-									"key": "role",
-									"value": "Actor"
-								},
-								{
 									"key": "page",
-									"value": "3"
+									"value": "1"
 								},
 								{
 									"key": "limit",
-									"value": "2"
+									"value": "20"
+								},
+								{
+									"key": "actor_id",
+									"value": "67eed1d17b5885b9ff5eb391",
+									"disabled": true
+								},
+								{
+									"key": "year_of_release",
+									"value": "2011",
+									"disabled": true
+								},
+								{
+									"key": "producer_id",
+									"value": "67eed1d17b5885b9ff5eb391",
+									"disabled": true
 								}
 							]
 						}

@@ -111,7 +111,7 @@ const validateFormData = (fieldValue: unknown, fieldKey: string, schema: Record<
          }
          break;
       case FORM_FIELD_TYPES.PASSWORD:
-         const passwordRegex = /^[A-Za-z\d]{8,}$/;
+         const passwordRegex = /^[A-Za-z\d@$!%*?&]{8,}$/;
          if (typeof fieldValue !== 'string' || !passwordRegex.test(fieldValue)) {
             return {
                field: fieldKey,

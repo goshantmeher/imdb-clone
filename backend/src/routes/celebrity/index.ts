@@ -12,7 +12,7 @@ router.get('/', Controller.getByFilter);
 router.post('/', authMiddleware.decodeToken, validateRequestBody, validateAddCelebrity, Controller.post);
 
 router.patch(
-   '/:ID/addRole',
+   '/:ID/add-role',
    validateIdParam,
    authMiddleware.decodeToken,
    validateRequestBody,
@@ -21,7 +21,7 @@ router.patch(
 );
 
 router.patch(
-   '/:ID/removeRole',
+   '/:ID/remove-role',
    validateIdParam,
    authMiddleware.decodeToken,
    validateRequestBody,

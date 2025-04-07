@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { createUserAction, loginAction, logoutAction } from './helper';
+import { createUserAction, getLoggedInUser, loginAction, logoutAction } from './helper';
 import { ControllerWrap } from '../helper';
 
 export default {
@@ -13,5 +13,8 @@ export default {
    },
    logout: async (req: Request, res: Response, next: NextFunction) => {
       ControllerWrap(() => logoutAction(req, res), req, res, next);
+   },
+   getLoggedInUser: async (req: Request, res: Response, next: NextFunction) => {
+      ControllerWrap(() => getLoggedInUser(req, res), req, res, next);
    },
 };

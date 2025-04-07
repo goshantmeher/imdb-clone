@@ -17,7 +17,7 @@ router.get('/', Controller.getByFilter);
 router.post('/', authMiddleware.decodeToken, validateRequestBody, validateAddMovie, Controller.post);
 
 router.patch(
-   '/:ID/addActor',
+   '/:ID/add-actor',
    validateIdParam,
    authMiddleware.decodeToken,
    validateRequestBody,
@@ -26,7 +26,7 @@ router.patch(
 );
 
 router.patch(
-   '/:ID/removeActor',
+   '/:ID/remove-actor',
    validateIdParam,
    authMiddleware.decodeToken,
    validateRequestBody,

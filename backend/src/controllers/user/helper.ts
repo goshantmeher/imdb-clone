@@ -5,6 +5,35 @@ import { getMessage } from '../../utils/constants/message-constants';
 import ERROR_CONSTANTS from '../../utils/constants/error-constants';
 import { IActionResponse } from '../types';
 
+export const getLoggedInUser = async (req: Request, res: Response): Promise<IActionResponse<IUser>> => {
+   try {
+      const reqUser = req.user;
+      if (!reqUser) {
+         return {
+            ...ERROR_CONSTANTS.UNAUTHORIZED,
+         };
+      }
+
+      const user = await User.findById(reqUser.id);
+      if (!user) {
+         return {
+            code: 403,
+            message: getMessage('USER_NOT_EXIST_PLEASE_REGISTER'),
+         };
+      }
+
+      const userResult = user.toObject ? user.toObject() : JSON.parse(JSON.stringify(user));
+      delete userResult.password;
+      return {
+         ...ERROR_CONSTANTS.OK,
+         message: getMessage('USER_LOGIN_SUCCESS'),
+         data: userResult,
+      };
+   } catch (error) {
+      return ERROR_CONSTANTS.INTERNAL_SERVER_ERROR;
+   }
+};
+
 export const loginAction = async (req: Request, res: Response): Promise<IActionResponse<IUser>> => {
    try {
       const { email, password } = req.body;
@@ -37,7 +66,10 @@ export const loginAction = async (req: Request, res: Response): Promise<IActionR
             };
          }
       }
-      return ERROR_CONSTANTS.UNAUTHORIZED;
+      return {
+         ...ERROR_CONSTANTS.UNAUTHORIZED,
+         message: getMessage('USER_LOGIN_FAILED'),
+      };
    } catch (error) {
       return ERROR_CONSTANTS.INTERNAL_SERVER_ERROR;
    }
@@ -68,6 +100,19 @@ export const createUserAction = async (req: Request, res: Response): Promise<IAc
             ...ERROR_CONSTANTS.INTERNAL_SERVER_ERROR,
             message: getMessage('USER_REGISTER_FAILED'),
          };
+      }
+
+      const newJwt = getNewToken({
+         email: saveResult.email,
+         id: `${saveResult._id}`,
+      });
+
+      if (newJwt) {
+         res.cookie('token', newJwt, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: 7 * 24 * 60 * 60 * 1000,
+         });
       }
       const userResult = saveResult.toObject ? saveResult.toObject() : JSON.parse(JSON.stringify(saveResult));
       delete userResult.password;
