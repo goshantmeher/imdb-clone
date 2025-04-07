@@ -10,6 +10,7 @@ import AddMovie from "./routes/movie/addMovie";
 import AddCelebrity from "./routes/celebrity/addCelebrity";
 import EditCelebrity from "./routes/celebrity/editCelebrity";
 import Test1 from "./routes/extra/test1";
+import Test2 from "./routes/extra/test2";
 
 export const router = [
   {
@@ -59,6 +60,10 @@ export const router = [
   {
     path: "/test-one",
     element: <Test1 />,
+  },
+  {
+    path: "/test-two",
+    element: <Test2 />,
   },
   {
     path: "*",
