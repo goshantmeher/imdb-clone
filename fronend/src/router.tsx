@@ -9,6 +9,7 @@ import EditMovie from "./routes/movie/editMovie";
 import AddMovie from "./routes/movie/addMovie";
 import AddCelebrity from "./routes/celebrity/addCelebrity";
 import EditCelebrity from "./routes/celebrity/editCelebrity";
+import Test1 from "./routes/extra/test1";
 
 export const router = [
   {
@@ -54,6 +55,10 @@ export const router = [
   {
     path: "/producer/:id",
     element: <Celebrity type={CELEBRITY_TYPES[1]} />,
+  },
+  {
+    path: "/test-one",
+    element: <Test1 />,
   },
   {
     path: "*",
