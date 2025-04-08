@@ -11,6 +11,7 @@
 
 - **Directory**: `/frontend`
 - Implements the user interface and client-side logic.
+- imdb clone react app
 
 ## Problems Implemented
 
@@ -24,7 +25,7 @@
 
 - **File Path**: `frontend/src/routes/extra/test2.tsx`
 - **URL**: `baseUrl/test-two`
-- **Description**: Solve the maximum profit problem for stock trading.
+- **Description**: Solve the maximum profit problem for buildings.
 
 ## How to Run
 
