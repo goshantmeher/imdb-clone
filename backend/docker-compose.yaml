@@ -18,3 +18,4 @@ services:
          - MONGO_URI=${MONGO_URI:-}
          - TOKEN_EXPIRATION=${TOKEN_EXPIRATION:-}
          - JWT_SECRET=${JWT_SECRET:-}
+         - allow_origin=${allow_origin:-}
