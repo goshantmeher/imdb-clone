@@ -7,4 +7,4 @@ RUN npm install
 
 ADD ./ /work/src/
 WORKDIR /work/src/
-CMD [ "npm", "run", "dev" ]
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]; 
