@@ -9,4 +9,4 @@ services:
     volumes:
       - /app/node_modules
     environment:
-      - VITE_APP_API_URL=${NODE_ENV:-}
+      - VITE_APP_API_URL=${VITE_APP_API_URL:-}
