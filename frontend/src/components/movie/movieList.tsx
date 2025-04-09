@@ -62,7 +62,7 @@ function MovieList({ data, viewMore = false, ...queryData }: IMovieListProps) {
   };
 
   return (
-    <div className="flex flex-wrap  gap-4">
+    <div className="flex flex-wrap  gap-4 justify-center sm:justify-start">
       {data.results.map((movie) => (
         <div
           key={movie._id}

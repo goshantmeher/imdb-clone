@@ -56,7 +56,7 @@ function CelebrityList({
   };
 
   return (
-    <div className="flex flex-wrap  gap-4">
+    <div className="flex flex-wrap  gap-4 justify-center sm:justify-start">
       {data.results.map((celebrity) => (
         <div
           key={celebrity._id}

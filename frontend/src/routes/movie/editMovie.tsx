@@ -7,6 +7,8 @@ function EditMovie() {
   const { movieData, movieActorList, movieProducerList } = useEditMovie();
   const navigate = useNavigate();
   const postSubmit = () => {
+    // eslint-disable-next-line no-debugger
+    debugger;
     navigate(-1);
   };
 

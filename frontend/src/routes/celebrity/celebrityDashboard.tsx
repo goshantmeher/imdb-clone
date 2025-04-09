@@ -18,24 +18,24 @@ function CelebrityDashboard({ type }: ICelebrityDashboardProps) {
     producerRequired = true;
   }
 
-  const { actorSearchData, producerSearchData, query } = useCelebrityDashboard(
-    actorRequired,
-    producerRequired
-  );
+  const { actorSearchData, producerSearchData, query, canAdd } =
+    useCelebrityDashboard(actorRequired, producerRequired);
 
   return (
     <PageContainer>
       <div className="flex flex-col h-full w-full px-10 py-4">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold ">All {type}</h1>
-          <Link to={`/celebrity/add/?type=${type}`}>
-            <Button
-              variant="default"
-              className="bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 transition-colors duration-200"
-            >
-              Add {type}
-            </Button>
-          </Link>
+          {canAdd && (
+            <Link to={`/celebrity/add/?type=${type}`}>
+              <Button
+                variant="default"
+                className="bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700 transition-colors duration-200"
+              >
+                Add {type}
+              </Button>
+            </Link>
+          )}
         </div>
         <div className="flex flex-col gap-16 w-ful">
           {actorRequired && (

@@ -259,7 +259,9 @@ function EditMovieForm({
                   <FormItem>
                     <FormLabel>
                       Producer
-                      <AddCelebrityDialog type={CELEBRITY_TYPES[1]} />
+                      {!field.value && (
+                        <AddCelebrityDialog type={CELEBRITY_TYPES[1]} />
+                      )}
                     </FormLabel>
 
                     <MultipleSelector

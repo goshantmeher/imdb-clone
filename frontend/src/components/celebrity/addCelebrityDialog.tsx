@@ -21,7 +21,7 @@ export function AddCelebrityDialog({ type }: { type: string }) {
           add new
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]  ">
+      <DialogContent className="sm:max-w-[425px]  max-h-[calc(100vh-40px)]  overflow-y-auto ">
         <DialogHeader>
           <h1 className="font-bold text-xl">Add Celebrity</h1>
         </DialogHeader>

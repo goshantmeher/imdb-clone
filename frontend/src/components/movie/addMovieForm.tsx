@@ -158,7 +158,7 @@ function AddMovieForm({ postSubmit }: { postSubmit?: () => void }) {
                   <FormItem>
                     <FormLabel>Plot</FormLabel>
                     <FormControl>
-                      <Input
+                      <Textarea
                         placeholder={`Enter Plot of the movie`}
                         {...field}
                       />
@@ -177,10 +177,7 @@ function AddMovieForm({ postSubmit }: { postSubmit?: () => void }) {
                   <FormItem>
                     <FormLabel>Avatar</FormLabel>
                     <FormControl>
-                      <Textarea
-                        placeholder={`Provide movie poster`}
-                        {...field}
-                      />
+                      <Input placeholder={`Provide movie poster`} {...field} />
                     </FormControl>
 
                     <FormDescription></FormDescription>
@@ -237,7 +234,9 @@ function AddMovieForm({ postSubmit }: { postSubmit?: () => void }) {
                   <FormItem>
                     <FormLabel>
                       Producer
-                      <AddCelebrityDialog type={CELEBRITY_TYPES[1]} />
+                      {!field.value && (
+                        <AddCelebrityDialog type={CELEBRITY_TYPES[1]} />
+                      )}
                     </FormLabel>
 
                     <MultipleSelector

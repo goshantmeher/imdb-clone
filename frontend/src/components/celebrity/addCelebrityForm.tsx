@@ -109,9 +109,9 @@ function AddCelebrityForm({
 
   return (
     <>
-      <div className="grid gap-4 py-4  w-full">
+      <div className="grid gap-4 py-4 w-full ">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(handleSubmit)}>
+          <form>
             <div className="flex flex-col gap-6">
               <FormField
                 control={form.control}
@@ -136,7 +136,10 @@ function AddCelebrityForm({
                   <FormItem>
                     <FormLabel>Date of Birth</FormLabel>
                     <FormControl>
-                      <Input placeholder={`Enter date of Birth`} {...field} />
+                      <Input
+                        placeholder={`Enter date of Birth 1965-10-19`}
+                        {...field}
+                      />
                     </FormControl>
 
                     <FormDescription></FormDescription>
@@ -210,7 +213,7 @@ function AddCelebrityForm({
                 name="images"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Avatar Url</FormLabel>
+                    <FormLabel>Avatar Url (Optional)</FormLabel>
                     <FormControl>
                       <Textarea
                         placeholder={`Provide images with (,) separated`}
@@ -230,7 +233,8 @@ function AddCelebrityForm({
                 )}
               </FormMessage>
               <Button
-                type="submit"
+                type="button"
+                onClick={form.handleSubmit(handleSubmit)}
                 className="w-full bg-violet-600 text-white hover:bg-violet-700 active:bg-violet-800"
                 disabled={pending}
               >

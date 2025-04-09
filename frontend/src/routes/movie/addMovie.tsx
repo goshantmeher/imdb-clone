@@ -13,7 +13,7 @@ function AddMovie() {
     <PageContainer>
       <div className="flex flex-col items-center  w-full h-full ">
         <div className="flex flex-col gap-4 w-full px-10 py-4 max-w-xl">
-          <h1 className="font-bold text-xl">Add {type}</h1>
+          <h1 className="font-bold text-xl">Add Movie{type}</h1>
           <AddMovieForm postSubmit={postSubmit} />
         </div>
       </div>

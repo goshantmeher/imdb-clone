@@ -8,8 +8,9 @@ import {
   setActorSearchData,
   setProducerSearchData,
 } from "@/redux/reducer/celebrity";
+import { userState } from "@/redux/reducer/user";
 import { CELEBRITY_TYPES } from "@/utils/constants/celebrity";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router";
 
@@ -27,7 +28,17 @@ const useCelebrityDashboard = (
   const producerSearchData = useSelector(selectProducerSearchData);
 
   const dispatch = useDispatch();
+  const loggedInUser = useSelector(userState);
 
+  const [canAdd, setcanAdd] = useState(false);
+
+  useEffect(() => {
+    if (loggedInUser && loggedInUser._id) {
+      setcanAdd(true);
+    } else {
+      setcanAdd(false);
+    }
+  }, [loggedInUser]);
   const searchCelebrities = useCallback(
     async (data: IGetCelebritiesApiProps) => {
       getCelebritiesApi(data)
@@ -80,6 +91,7 @@ const useCelebrityDashboard = (
     searchCelebrities,
     actorSearchData,
     producerSearchData,
+    canAdd,
     query: {
       name: name || "",
       role: role || "",

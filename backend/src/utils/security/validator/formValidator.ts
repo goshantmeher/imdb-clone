@@ -80,7 +80,7 @@ const validateFormData = (fieldValue: unknown, fieldKey: string, schema: Record<
          }
          break;
       case FORM_FIELD_TYPES.STRING:
-         const stringRegex = /^[a-zA-Z0-9_ ]+$/;
+         const stringRegex = /^[a-zA-Z0-9_ :.]+$/;
          if (typeof fieldValue !== 'string' || !stringRegex.test(fieldValue)) {
             return {
                field: fieldKey,

@@ -3,7 +3,8 @@ import {
   selectMovieSearchData,
   setMovieSearchData,
 } from "@/redux/reducer/movie";
-import { useCallback, useEffect } from "react";
+import { userState } from "@/redux/reducer/user";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router";
 
@@ -16,7 +17,17 @@ const useMovieDashboard = () => {
   const movieSearchData = useSelector(selectMovieSearchData);
 
   const dispatch = useDispatch();
+  const loggedInUser = useSelector(userState);
 
+  const [canAdd, setcanAdd] = useState(false);
+
+  useEffect(() => {
+    if (loggedInUser && loggedInUser._id) {
+      setcanAdd(true);
+    } else {
+      setcanAdd(false);
+    }
+  }, [loggedInUser]);
   const searchMovie = useCallback(
     async (data: IGetMoviesApiProps) => {
       if (actor_id) {
@@ -62,6 +73,7 @@ const useMovieDashboard = () => {
   return {
     movieSearchData,
     searchMovie,
+    canAdd,
     query: {
       actor_id,
       producer_id,
